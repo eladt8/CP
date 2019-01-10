@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FIRST PAGE</title>
+    <script src="jquery-3.3.1.min.js"></script>
+
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
+    <script src="mainPage.js"></script>
+    <style>
+       button {
+           /*float: right;*/
+           margin: 20px 40px 10px 10px;
+           width: auto;
+           padding: 2px;
+           color: red;
+           font-size: large;
+        }
+    </style>
+</head>
+<body background="resources/background.png" style="background-repeat: no-repeat;background-size: 100% 100vh;">
+
+<h1 id="headLine">Employee tool</h1>
+
+<!--<button name="loadDataBase" class="" type="submit" value="load Data Base" onclick="handleLoadDataBase()">load Data Base</button>-->
+
+<button name="insertEmployee" class="" type="submit" value="Insert Employee" onclick="handleInsertEmployee()">Insert Employee</button>
+<button name="showEmployees" class="" type="submit" value="Show Employees" onclick="handleShowEmployees()">Show Employees</button>
+
+<div id="myGrid" style="width: 1000px; height: 500px;border: 1px solid black;display: none"class="ag-theme-balham"></div>
+
+<div id ="insertForm"style="width: 200px; height: 200px;border: 1px solid black;display: none">
+    <h4>Insert employee</h4>
+    <!--<form method="POST" action="/InsertServlet" >-->
+        <form  name="myForm"   onsubmit="handleSubmitInsertEmployee()" >
+        First name:<br>
+        <input id = "firstName" type="text" name="firstName" value="Amos">
+        <br>
+        Last name:<br>
+        <input id = "lastName" type="text" name="lastName" value="Oz">
+        <br>
+        Email address:<br>
+        <input id = "email" type="text" name="email" value="@checkpoint.com">
+        <br>
+
+        <input type="submit" value="Submit">
+        <br><br>
+    </form>
+</div>
+
+
+</body>
+</html>
