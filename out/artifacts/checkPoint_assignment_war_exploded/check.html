@@ -1,0 +1,185 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>BattleShipGameRoom</title>-->
+
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <!--<style>-->
+
+
+        <!--#top {-->
+            <!--position: relative;-->
+            <!--top: 2px;-->
+            <!--background-color: #ffede5;-->
+            <!--background-size: 100%;-->
+        <!--}-->
+
+
+
+        <!--#body {-->
+            <!--position: relative;-->
+            <!--top: 3px;-->
+            <!--background-color: #444466;-->
+        <!--}-->
+
+        <!--#boardsdiv {-->
+            <!--width: 75%;-->
+            <!--float: left;-->
+        <!--}-->
+
+
+        <!--#chatDiv {-->
+            <!--position: relative;-->
+            <!--left: 3px;-->
+            <!--width: 25%;-->
+            <!--height: 450px;-->
+            <!--background-color: #ff815c;-->
+            <!--float: left;-->
+            <!--overflow: auto;-->
+        <!--}-->
+
+        <!--#bottom {-->
+            <!--padding: 5px;-->
+            <!--background-color: #ffede5;-->
+            <!--position: relative;-->
+            <!--clear: left;-->
+            <!--top: 3px;-->
+            <!--width: 100%;-->
+            <!--height: auto;-->
+        <!--}-->
+
+        <!--#clockDiv {-->
+            <!--margin: auto;-->
+            <!--width: 14%;-->
+        <!--}-->
+
+
+
+        <!--#tablesDiv {-->
+            <!--margin: auto;-->
+            <!--width: 50%;-->
+
+        <!--}-->
+
+
+        <!--ul {-->
+            <!--color: #040696; /* bullet color */-->
+
+        <!--}-->
+        <!--button {-->
+            <!--/*float: right;*/-->
+            <!--margin: 20px 40px 10px 10px;-->
+            <!--width: auto;-->
+            <!--padding: 2px;-->
+            <!--color: red;-->
+            <!--font-size: large;-->
+        <!--}-->
+        <!--.update{-->
+            <!--padding: 2px;-->
+            <!--color: #383fff;-->
+            <!--font-size:large ;-->
+            <!--border: 1px solid black;-->
+        <!--}-->
+
+        <!--.form{-->
+            <!--width: 200px;-->
+            <!--height: 300px;-->
+            <!--border: 1px solid black;-->
+            <!--/*display: none;*/-->
+            <!--/*display: inline-block;*/-->
+            <!--/*position: relative;*/-->
+
+        <!--}-->
+        <!--#myGrid-->
+        <!--{-->
+            <!--width: 800px;-->
+            <!--height: 300px;-->
+            <!--border: 1px solid black;-->
+            <!--/*display: none;*/-->
+            <!--/*display: inline-flex;*/-->
+        <!--}-->
+    <!--</style>-->
+<!--</head>-->
+
+<!--&lt;!&ndash;<body background="../../resources/background3.jpg" style="background-repeat: no-repeat;background-size: 100% 100vh;">&ndash;&gt;-->
+<!--&lt;!&ndash;<div id="body">&ndash;&gt;-->
+    <!--&lt;!&ndash;<div id="boardsdiv">&ndash;&gt;-->
+        <!--&lt;!&ndash;<div id="tableContainer"style="display: inline-block">&ndash;&gt;-->
+            <!--&lt;!&ndash;<button name="showEmployees" class="" type="submit" value="Show Employees" onclick="handleShowEmployees()">Show Employees</button>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<div id="myGrid" class="ag-theme-balham"></div>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;<div id="chatDiv">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<button name="insertEmployee" class="" type="submit" value="Insert Employee" onclick="handleInsertEmployee()">Insert Employee</button>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<form  name="myForm"   onsubmit="handleSubmitInsertEmployee()" >&ndash;&gt;-->
+            <!--&lt;!&ndash;First name:<br>&ndash;&gt;-->
+            <!--&lt;!&ndash;<input id = "firstName" type="text" name="firstName" value="Amos">&ndash;&gt;-->
+            <!--&lt;!&ndash;<br>&ndash;&gt;-->
+            <!--&lt;!&ndash;Last name:<br>&ndash;&gt;-->
+            <!--&lt;!&ndash;<input id = "lastName" type="text" name="lastName" value="Oz">&ndash;&gt;-->
+            <!--&lt;!&ndash;<br>&ndash;&gt;-->
+            <!--&lt;!&ndash;Email address:<br>&ndash;&gt;-->
+            <!--&lt;!&ndash;<input id = "email" type="text" name="email" value="@checkpoint.com">&ndash;&gt;-->
+            <!--&lt;!&ndash;<br>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<input type="submit" value="Submit">&ndash;&gt;-->
+            <!--&lt;!&ndash;<br><br>&ndash;&gt;-->
+        <!--&lt;!&ndash;</form>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<div id="bottom">&ndash;&gt;-->
+    <!--&lt;!&ndash;<div id="clockDiv">&ndash;&gt;-->
+        <!--&lt;!&ndash;<table>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                <!--&lt;!&ndash;<th>Clock:</th>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                <!--&lt;!&ndash;<td id="fillMinutes">M</td>&ndash;&gt;-->
+                <!--&lt;!&ndash;<td id="fillSeconds">S</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;</table>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+<!--<div class="container-fluid">-->
+    <!--<h1>Hello World!</h1>-->
+    <!--<p>Resize the browser window to see the effect.</p>-->
+    <!--<div class="row">-->
+        <!--&lt;!&ndash;<div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>&ndash;&gt;-->
+        <!--<div id ="insertForm" class="col-sm-2" style="background-color:lavender;"  >-->
+            <!--<button name="insertEmployee" class="" type="submit" value="Insert Employee" onclick="handleInsertEmployee()">Insert Employee</button>-->
+
+            <!--<p>Insert employee</p>-->
+            <!--&lt;!&ndash;<form method="POST" action="/InsertServlet" >&ndash;&gt;-->
+            <!--<form  name="myForm"   onsubmit="handleSubmitInsertEmployee()" >-->
+                <!--First name:<br>-->
+                <!--<input id = "firstName" type="text" name="firstName" value="Amos">-->
+                <!--<br>-->
+                <!--Last name:<br>-->
+                <!--<input id = "lastName" type="text" name="lastName" value="Oz">-->
+                <!--<br>-->
+                <!--Email address:<br>-->
+                <!--<input id = "email" type="text" name="email" value="@checkpoint.com">-->
+                <!--<br>-->
+
+                <!--<input type="submit" value="Submit">-->
+                <!--<br><br>-->
+            <!--</form>-->
+        <!--</div>-->
+
+
+        <!--<div id="tableContainer"class="col-sm-10" style="background-color:lavenderblush;">-->
+            <!--<button name="showEmployees" class="" type="submit" value="Show Employees" onclick="handleShowEmployees()">Show Employees</button>-->
+            <!--<div id="myGrid" class="ag-theme-balham"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

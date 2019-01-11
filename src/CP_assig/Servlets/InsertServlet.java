@@ -49,11 +49,8 @@ public class InsertServlet extends HttpServlet{
             while (rs.next()) {
                 employeesList.add(new Employee(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
             }
-//            employeesList.add(new Employee(53,"dan","shallom","dfs@gmail.com"));
-//            employeesList.add(new Employee(23,"dani","dayan","fdg@gmail.com"));
-            Gson json = new Gson();
-//            Set<String> usersList = getEmployees();
 
+            Gson json = new Gson();
               out.println(json.toJson(employeesList));
             out.flush();
         } catch (Exception e) {
@@ -71,7 +68,7 @@ public class InsertServlet extends HttpServlet{
         String firstNameFromParameter = req.getParameter("firstName");
         String LastnameFromParameter = req.getParameter("lastName");
         String emailAddressFromParameter = req.getParameter("email");
-        String queryParams =firstNameFromParameter+","+LastnameFromParameter +"," +emailAddressFromParameter;
+        String queryParams = "'"+firstNameFromParameter.toString()+"','"+LastnameFromParameter.toString() +"','" +emailAddressFromParameter.toString()+"'";
 //add ID number
         try {
             PrintWriter out = resp.getWriter();
@@ -79,16 +76,15 @@ public class InsertServlet extends HttpServlet{
         SqlConnection dataBaseConnection = SqlConnection.InstansOfSqlConnection();
         Connection connServer = dataBaseConnection.getConection();
         Statement statement = connServer.createStatement();
-//            " insert into users (first_name, last_name, date_created, is_admin, num_points)"
-//                    + " values (?, ?, ?, ?, ?)";
-        String queryString = "insert into Employees (firsName,lastName,email) values (queryParams)";//add to constants
-        ResultSet rs = statement.executeQuery(queryString);
-            resp.setContentType("text/html");
-            resp.sendRedirect( "http://localhost:8080/index.html");
-//           out.print(true);
+
+        String queryString = "INSERT INTO Employees  (FirstName,LastName,Email) VALUES (" + queryParams +")";//add to constants
+        statement.executeUpdate(queryString);
+           out.print(true);
         } catch (Exception e) {
 //
         }
 
     }
 }
+
+

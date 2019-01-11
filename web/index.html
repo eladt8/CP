@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,48 +9,106 @@
     <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
     <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="mainPage.js"></script>
     <style>
-       button {
-           /*float: right;*/
-           margin: 20px 40px 10px 10px;
-           width: auto;
-           padding: 2px;
-           color: red;
-           font-size: large;
+        button {
+            /*float: right;*/
+            /*margin: 20px 40px 10px 10px;*/
+            width: auto;
+            padding: 2px;
+            color: red;
+            font-size: large;
         }
+
+        .update {
+            padding-bottom: 2px;
+            height: 90%;
+            color: #22551f;
+            font-size: small;
+            border: 1px solid black;
+            margin-top: 0px;
+
+        }
+
+        .form {
+            width: 200px;
+            height: 250px;
+            border: 1px solid black;
+
+        }
+
+        #myGrid {
+            width: 1000px;
+            height: 300px;
+
+        }
+        #updateForm{
+            border: 1px solid black;
+            background: antiquewhite;
+        }
+        #insertForm
+        {
+
+        }
+
     </style>
 </head>
-<body background="resources/background.png" style="background-repeat: no-repeat;background-size: 100% 100vh;">
+<body background="resources/background.png" style="background-repeat: no-repeat;background-size: 100% 100vh; ">
 
 <h1 id="headLine">Employee tool</h1>
 
-<!--<button name="loadDataBase" class="" type="submit" value="load Data Base" onclick="handleLoadDataBase()">load Data Base</button>-->
+<div class="container">
+    <div class="row">
 
-<button name="insertEmployee" class="" type="submit" value="Insert Employee" onclick="handleInsertEmployee()">Insert Employee</button>
-<button name="showEmployees" class="" type="submit" value="Show Employees" onclick="handleShowEmployees()">Show Employees</button>
+        <div id="divInsertForm" class="col-sm-2" class="form">
+            <button name="insertEmployee" class="" type="submit" value="Insert Employee"
+                    onclick="handleInsertEmployee()">Insert Employee</button>
+            <form id="insertForm" name="myForm" style="display: none" onsubmit="handleSubmitInsertEmployee()">
+                <h5>Insert employee</h5>
+                First name:<br>
+                <input id="firstName" type="text" name="firstName" value="Amos">
+                <br>
+                Last name:<br>
+                <input id="lastName" type="text" name="lastName" value="Oz">
+                <br>
+                Email address:<br>
+                <input id="email" type="text" name="email" value="@checkpoint.com">
+                <br>
 
-<div id="myGrid" style="width: 1000px; height: 500px;border: 1px solid black;display: none"class="ag-theme-balham"></div>
+                <input type="submit" value="Submit">
+                <br><br>
+            </form>
+        </div>
 
-<div id ="insertForm"style="width: 200px; height: 200px;border: 1px solid black;display: none">
-    <h4>Insert employee</h4>
-    <!--<form method="POST" action="/InsertServlet" >-->
-        <form  name="myForm"   onsubmit="handleSubmitInsertEmployee()" >
-        First name:<br>
-        <input id = "firstName" type="text" name="firstName" value="Amos">
-        <br>
-        Last name:<br>
-        <input id = "lastName" type="text" name="lastName" value="Oz">
-        <br>
-        Email address:<br>
-        <input id = "email" type="text" name="email" value="@checkpoint.com">
-        <br>
 
-        <input type="submit" value="Submit">
-        <br><br>
-    </form>
+        <div id="tableContainer" class="col-sm-10">
+            <button name="showEmployees" class="" type="submit" value="Show Employees" onclick="handleShowEmployees()">
+                Show Employees
+            </button>
+
+            <div id="myGrid" class="ag-theme-balham" style="display: none" ></div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div id="divUpdateForm" class="col-sm-12">
+
+            <form id="updateForm" name="myForm" style="display: none" onsubmit="ExecuteUpdateEmployee()">
+                <h5>update employee</h5>
+                Employee ID (must): <input id="idUpdate" type="text" name="id" value="">
+                First name: <input id="firstNameUpdate" type="text" name="firstName" value="">
+                Last name: <input id="lastNameUpdate" type="text" name="lastName" value="">
+                Email address: <input id="emailUpdate" type="text" name="email" value="">
+                <br>
+                <input type="submit" value="save">
+                <br><br>
+            </form>
+        </div>
+    </div>
 </div>
-
 
 </body>
 </html>

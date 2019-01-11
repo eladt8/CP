@@ -13,12 +13,12 @@
         <url-pattern>/InsertServlet</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>SetUpSataBaseServlet</servlet-name>
-        <servlet-class>CP_assig.Servlets.SetUpSataBaseServlet</servlet-class>
+        <servlet-name>UpdateEmployeeServlet</servlet-name>
+        <servlet-class>CP_assig.Servlets.UpdateEmployeeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SetUpSataBaseServlet</servlet-name>
-        <url-pattern>/SetUpSataBaseServlet</url-pattern>
+        <servlet-name>UpdateEmployeeServlet</servlet-name>
+        <url-pattern>/UpdateEmployeeServlet</url-pattern>
     </servlet-mapping>
 </web-app>
 
